@@ -51,7 +51,6 @@ router.post('/login', async (req, res) => {
 
         // });
 
-        const nodemailer = require("nodemailer");
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
