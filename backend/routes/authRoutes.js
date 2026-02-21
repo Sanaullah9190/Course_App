@@ -38,20 +38,37 @@ router.post('/login', async (req, res) => {
         await admin.save();
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
-        const transporter = nodemailer.createTransport({
-            service:"gmail",
-            auth: {
-                user: process.env.EMAIL_USER, // .env file se uthayega
-                pass: process.env.EMAIL_PASS  // .env file se uthayega
-            },
-            port: 465,
-            secure: true,
-            requireTLS: true,
-            tls:{rejectUnauthorized:false},
+        // const transporter = nodemailer.createTransport({
+        //     service:"gmail",
+        //     auth: {
+        //         user: process.env.EMAIL_USER, // .env file se uthayega
+        //         pass: process.env.EMAIL_PASS  // .env file se uthayega
+        //     },
+        //     port: 465,
+        //     secure: true,
+        //     requireTLS: true,
+        //     tls:{rejectUnauthorized:false},
 
+        // });
+
+        const nodemailer = require("nodemailer");
+
+        const transporter = nodemailer.createTransport({
+            service: "gmail",
+            host: "smtp.gmail.com",
+            port: 465, // SSL ke liye 465 use karein
+            secure: true, // port 465 ke liye true, 587 ke liye false
+            auth: {
+                user: process.env.EMAIL_USE, // Aapka email
+                pass: process.env.EMAIL_PASS, // Aapka 16-digit App Password
+            },
+            // Render par timeout se bachne ke liye ye settings zaroori hain
+            connectionTimeout: 10000, // 10 seconds
+            greetingTimeout: 10000,
+            socketTimeout: 10000,
         });
 
-       
+
         const mailOptions = {
             from: `"Campus Circuit " <${process.env.EMAIL_USER}>`,
             to: admin.email,
@@ -63,7 +80,7 @@ router.post('/login', async (req, res) => {
         res.status(200).json({ success: true, message: "OTP Send to your Email!" });
 
     } catch (error) {
-        res.status(500).json({ success: false, message: "Login Error", error: error.message  });
+        res.status(500).json({ success: false, message: "Login Error", error: error.message });
 
     }
 });
