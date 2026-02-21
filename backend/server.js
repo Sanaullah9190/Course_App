@@ -21,7 +21,7 @@ cloudinary.config({
 
 // 2. Middlewares
 const corsOptions = {
-    origin: 'https://course-app-backend-u3au.onrender.com', 
+    origin: '*', 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
