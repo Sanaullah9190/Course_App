@@ -51,14 +51,19 @@ router.post('/login', async (req, res) => {
         // });
 
         const transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
+            service: 'gmail',
+            host: 'smtp.gmail.com',
+            tls: {
+                ciphers: 'SSLv3',
+            },
             port: 587,
-            secure: false, // Use true for port 465, false for port 587
+            secure: false,
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
         });
+
 
         const mailOptions = {
             from: `"Campus Circuit " <${process.env.EMAIL_USER}>`,
