@@ -45,8 +45,9 @@ router.post('/login', async (req, res) => {
                 user: process.env.EMAIL_USER, // .env file se uthayega
                 pass: process.env.EMAIL_PASS  // .env file se uthayega
             },
-            port:456,
-            secure:true
+            port:587,
+            secure:false,
+            requireTLS:true
         });
 
         const mailOptions = {
@@ -61,6 +62,8 @@ router.post('/login', async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Login Error", error: error.message });
+        console.log(res,error);
+        
     }
 });
 
