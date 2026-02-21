@@ -1,7 +1,7 @@
 import express from 'express';
 import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
-import Material from '../models/Material.js';
+import Material from '../models/material.js';
 
 dotenv.config();
 
