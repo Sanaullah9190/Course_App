@@ -38,35 +38,20 @@ router.post('/login', async (req, res) => {
         await admin.save();
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
-        // const transporter = nodemailer.createTransport({
-        //     host: "74.125.193.108",
-        //     service:"gmail",
-        //     famly:4,
-        //     auth: {
-        //         user: process.env.EMAIL_USER, // .env file se uthayega
-        //         pass: process.env.EMAIL_PASS  // .env file se uthayega
-        //     },
-        //     port: 465,
-        //     secure: true,
-        //     requireTLS: true,
-        //     tls:{rejectUnauthorized:false},
-
-        // });
-
         const transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
-            port: 587,
-            service:"Gmail",
-            secure: false, // Use true for port 465, false for port 587
+            service:"gmail",
             auth: {
-                user: "process.env.EMAIL_USER",
-                pass: "process.env.EMAIL_PASS",
+                user: process.env.EMAIL_USER, // .env file se uthayega
+                pass: process.env.EMAIL_PASS  // .env file se uthayega
             },
+            port: 465,
+            secure: true,
+            requireTLS: true,
+            tls:{rejectUnauthorized:false},
+
         });
 
-
-
-
+       
         const mailOptions = {
             from: `"Campus Circuit " <${process.env.EMAIL_USER}>`,
             to: admin.email,
