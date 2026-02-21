@@ -43,8 +43,7 @@ router.post('/login', async (req, res) => {
             auth: {
                 user: process.env.EMAIL_USER, // .env file se uthayega
                 pass: process.env.EMAIL_PASS  // .env file se uthayega
-            },
-            port:456
+            }
         });
 
         const mailOptions = {
