@@ -52,19 +52,18 @@ router.post('/login', async (req, res) => {
         // });
 
 
-        const transporter = nodemailer.createTransport({
+       const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
-            port: 587,
-            secure: false, // Port 587 ke liye false hona chahiye
+            port: 465,
+            secure: true, 
+            pool: true, // Render par connection stable rakhne ke liye
             auth: {
                 user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                pass: process.env.EMAIL_PASS, // 16-digit App Password zaroori hai
             },
             tls: {
-                rejectUnauthorized: false, // Ye Render par certificate issues solve karta hai
-                minVersion: "TLSv1.2"
-            },
-            connectionTimeout: 20000,
+                rejectUnauthorized: false // Connection block hone se bachata hai
+            }
         });
 
 
