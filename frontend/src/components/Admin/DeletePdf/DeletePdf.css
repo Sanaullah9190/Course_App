@@ -1,0 +1,112 @@
+.edu-form-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.edu-form-card.full-width-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eef2f6;
+}
+
+.edu-form-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f8fafc;
+    padding-bottom: 15px;
+}
+
+.edu-form-header h3 {
+    font-size: 1.6rem;
+    color: #1b2559;
+    font-weight: 700;
+}
+
+.edu-filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.search-btn {
+    width: 100% !important;
+    background: #4361ee !important;
+}
+
+/* Table Styling */
+.edu-table-wrapper {
+    margin-top: 20px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.edu-manager-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.edu-manager-table th {
+    background: #f8fafc;
+    padding: 15px;
+    text-align: left;
+    color: #4361ee;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.edu-manager-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.file-title-td {
+    font-weight: 500;
+}
+
+/* Red X Button Styling */
+.edu-delete-x-btn {
+    background: #fee2e2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.edu-delete-x-btn:hover {
+    background: #ef4444;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Status Badges */
+.edu-tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.edu-tag.Notes { background: #dcfce7; color: #166534; }
+.edu-tag.PYP { background: #fef9c3; color: #854d0e; }
+
+.no-results {
+    padding: 40px;
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+}

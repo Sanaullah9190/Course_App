@@ -1,0 +1,128 @@
+/* Purane CSS ko replace kar dena */
+.full-page-selection {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #f4f7fe;
+    display: flex;
+    justify-content: center; /* Horizontally Center */
+    align-items: center;    /* Vertically Center */
+    position: relative;
+    padding: 60px 20px;
+    overflow-x: hidden;
+}
+
+.back-btn {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    border: none;
+    background: white;
+    color: #3f51b5;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #3f51b5;
+    color: white;
+}
+
+.selection-wrapper {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.step-container {
+    text-align: center;
+    width: 100%;
+}
+
+.step-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.step-container h1 {
+    font-size: 2.8rem;
+    color: #1e293b;
+    margin: 20px 0 50px 0;
+}
+
+.step-container h1 span {
+    color: #3f51b5;
+    border-bottom: 4px solid #3f51b5;
+}
+
+/* Flexbox/Grid for Centered Cards */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Sabhi cards center mein rahenge */
+    gap: 30px;
+    width: 100%;
+}
+
+.selection-card-item {
+    background: white;
+    width: 100%;
+    max-width: 280px; /* Card size balance karne ke liye */
+    padding: 40px 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+}
+
+.selection-card-item:hover {
+    transform: translateY(-10px);
+    border-color: #3f51b5;
+    box-shadow: 0 20px 40px rgba(63, 81, 181, 0.15);
+}
+
+.selection-card-item .icon {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+}
+
+.selection-card-item h3 {
+    font-size: 1.6rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.selection-card-item p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Spinner and Loaders */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #e2e8f0;
+    border-top: 5px solid #3f51b5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

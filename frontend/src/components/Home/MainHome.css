@@ -1,0 +1,55 @@
+/* Course Grid ko Flexbox ya Grid se Row mein lane ke liye */
+.course-grid {
+    display: flex; /* Sabhi cards ko ek line mein layega */
+    flex-wrap: wrap; /* Agar cards zyada hon toh dusri line mein aa jayenge */
+    justify-content: center; /* Cards ko screen ke beech mein rakhega */
+    gap: 25px; /* Cards ke beech ki doori */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Har ek Course Card ki styling */
+.course-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    width: 280px; /* Card ki fix width */
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.course-card:hover {
+    transform: translateY(-10px); /* Hover karne par card upar uthega */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+/* Icon aur Text ki styling */
+.card-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.course-card h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: #333;
+}
+
+.card-desc {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.explore-tag {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 13px;
+    letter-spacing: 1px;
+}

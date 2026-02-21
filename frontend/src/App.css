@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body, html {
+  width: 100%; height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background: #0f172a; overflow: hidden;
+}
+
+.navbar-fixed {
+  width: 100vw; height: 80px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  color: white; display: flex;
+  justify-content: center; align-items: center;
+  position: fixed; top: 0; left: 0; z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-content { width: 90%; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { cursor: pointer; color: #818cf8; font-weight: 800; font-size: 24px; }
+.nav-links span{
+  margin: 10px;
+}
+
+.main-viewport {
+  width: 100vw; height: calc(100vh - 80px);
+  margin-top: 80px; display: flex;
+  justify-content: center; align-items: center;
+}
+
+.selection-box-fixed {
+  background: #ffffff; width: 95%; max-width: 950px;
+  height: 85vh; border-radius: 40px;
+  display: flex; flex-direction: column;
+  padding: 40px; box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  position: relative; overflow: hidden;
+}
+
+.content-container-full {
+  height: 100%; width: 100%;
+  display: flex; flex-direction: column;
+  justify-content: center;
+}
+
+.selection-center-view {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.step-title-large {
+  font-size: 32px; color: #1e293b; margin-bottom: 40px;
+  font-weight: 700; width: 100%;
+}
+
+.folder-grid-centered {
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: 30px; width: 100%;
+}
+
+.folder-card-large {
+  background: #f8fafc; width: 200px; height: 200px;
+  border-radius: 28px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer; transition: 0.4s;
+  border: 1.5px solid #e2e8f0;
+}
+
+.folder-card-large:hover {
+  transform: translateY(-15px);
+  border-color: #818cf8; background: #ffffff;
+  box-shadow: 0 25px 50px rgba(129, 140, 248, 0.2);
+}
+
+.folder-icon-lg { font-size: 60px; margin-bottom: 12px; }
+.folder-name-lg { font-weight: 700; color: #334155; font-size: 20px; }
+
+.pdf-scroll-area { flex-grow: 1; overflow-y: auto; padding-right: 10px; margin-top: 20px; }
+.pdf-scroll-area::-webkit-scrollbar { width: 6px; }
+.pdf-scroll-area::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+.pdf-grid-compact { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 18px; }
+
+.compact-pdf-card {
+  background: #ffffff; border: 1.5px solid #f1f5f9;
+  padding: 20px 15px; border-radius: 20px; 
+  display: flex; flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  transition: 0.3s; cursor: pointer;
+  text-align: center;
+}
+
+.compact-pdf-card:hover { border-color: #818cf8; transform: translateY(-5px); }
+
+.pdf-icon-mini { font-size: 35px; margin-bottom: 15px; }
+
+.pdf-title-mini { 
+  font-weight: 700; 
+  font-size: 14px; 
+  color: #1e293b; 
+  text-align: center; 
+  width: 100%;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.pdf-tag-mini { 
+  font-size: 11px; 
+  color: #94a3b8; 
+  font-weight: 600; 
+  text-transform: uppercase;
+}
+
+.view-tag-btn { 
+  background: #818cf8; color: white; 
+  font-size: 11px; padding: 7px 18px; 
+  border-radius: 50px; font-weight: 700; 
+  margin-top: 15px; border: none;
+}
+
+.back-btn-inline {
+  position: absolute; top: 35px; left: 35px;
+  background: #f1f5f9; border: none; padding: 10px 20px;
+  border-radius: 12px; color: #4f46e5; font-weight: 700; cursor: pointer; z-index: 100;
+}

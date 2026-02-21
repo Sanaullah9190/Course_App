@@ -1,0 +1,108 @@
+/* Container to center the card in full screen */
+.edu-structure-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: transparent; /* Main content area background use hoga */
+}
+
+/* Professional Card Design */
+.edu-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Soft Shadow */
+    border: 1px solid #eef2f6;
+}
+
+/* Header with Dark Text for Visibility */
+.edu-card-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.edu-card-header h3 {
+    font-size: 1.6rem;
+    color: #1e293b; /* Clearly visible dark color */
+    font-weight: 700;
+    margin: 0;
+}
+
+.edu-card-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-top: 5px;
+}
+
+/* Form Grid Layout */
+.edu-form-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.edu-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Side by side inputs */
+    gap: 20px;
+}
+
+/* Label & Input Styling */
+.edu-input-group label {
+    font-weight: 600;
+    color: #4361ee; /* Professional Blue */
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    display: block;
+    text-transform: uppercase;
+}
+
+.edu-input-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f8fafc;
+    color: #334155; /* Visible text color */
+    transition: all 0.3s ease;
+}
+
+.edu-input-group input:focus {
+    outline: none;
+    border-color: #4361ee;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+}
+
+/* Button Styling */
+.edu-submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #4361ee;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(67, 97, 238, 0.2);
+}
+
+.edu-submit-btn:hover {
+    background: #3730a3;
+    transform: translateY(-1px);
+}
+
+/* Responsive for Mobile */
+@media (max-width: 600px) {
+    .edu-form-row {
+        grid-template-columns: 1fr;
+    }
+}
