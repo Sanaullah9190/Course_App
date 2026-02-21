@@ -54,16 +54,17 @@ router.post('/login', async (req, res) => {
 
         const transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
-            port: 465,
-            secure: true, // Use SSL
+            port: 587,
+            secure: false, // Port 587 ke liye false hona chahiye
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
             },
-            // Pool use karne se connections reuse hote hain, jo timeout bachata hai
-            pool: true,
-            maxConnections: 1,
-            connectionTimeout: 20000, // Thoda extra time dein Render ke liye
+            tls: {
+                rejectUnauthorized: false, // Ye Render par certificate issues solve karta hai
+                minVersion: "TLSv1.2"
+            },
+            connectionTimeout: 20000,
         });
 
 
@@ -74,15 +75,8 @@ router.post('/login', async (req, res) => {
             text: `Dear User,Thank you for choosing Campus Circuit.Use the following One-Time Password (OTP) to complete your verification. This code is valid for the next 10 minutes. ${otp} If you did not request this code, please ignore this email or contact our support team.Best regards,Team Campus Circuit.`
         };
 
-        try {
-            await transporter.sendMail(mailOptions);
-            console.log("email sent suceesfully");
-            res.status(200).json({ success: true, message: "OTP Send to your Email!" });
-        } catch (error) {
-            console.error("Nodemailer Error:", mailError);
-            return res.status(500).json({ success: false, message: "Email delivery failed", error: mailError.message });
-
-        }
+        await transporter.sendMail(mailOptions);
+        res.status(200).json({ success: true, message: "OTP Send to your Email!" })
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Login Error", error: error.message });
