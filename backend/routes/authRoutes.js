@@ -45,8 +45,8 @@ router.post('/login', async (req, res) => {
                 user: process.env.EMAIL_USER, // .env file se uthayega
                 pass: process.env.EMAIL_PASS  // .env file se uthayega
             },
-            port: 587,
-            secure: false,
+            port: 465,
+            secure: true,
             requireTLS: true
         });
 
