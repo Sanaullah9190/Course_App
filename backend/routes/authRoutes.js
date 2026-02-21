@@ -38,31 +38,19 @@ router.post('/login', async (req, res) => {
         await admin.save();
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
-        // const transporter = nodemailer.createTransport({
-        //     host: "smtp.gmail.com",
-        //     service: 'gmail',
-        //     auth: {
-        //         user: process.env.EMAIL_USER, // .env file se uthayega
-        //         pass: process.env.EMAIL_PASS  // .env file se uthayega
-        //     },
-        //     port: 587,
-        //     secure: false,
-        //     requireTLS: true
-        // });
-
         const transporter = nodemailer.createTransport({
+            host: "smtp.gmail.com",
             service: 'gmail',
-            host: 'smtp.gmail.com',
-            tls: {
-                ciphers: 'SSLv3',
+            auth: {
+                user: process.env.EMAIL_USER, // .env file se uthayega
+                pass: process.env.EMAIL_PASS  // .env file se uthayega
             },
             port: 587,
             secure: false,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
+            requireTLS: true
         });
+
+        
 
 
         const mailOptions = {
@@ -77,7 +65,7 @@ router.post('/login', async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Login Error", error: error.message });
-        console.log(res, error);
+        console.log("new eroror ye h ",res, error);
 
     }
 });
