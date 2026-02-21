@@ -60,7 +60,7 @@ router.post('/login', async (req, res) => {
             text: `Dear User,Thank you for choosing Campus Circuit.Use the following One-Time Password (OTP) to complete your verification. This code is valid for the next 10 minutes. ${otp} If you did not request this code, please ignore this email or contact our support team.Best regards,Team Campus Circuit.`
         };
 
-        await transporter.sendMail(mailOptions);
+        // await transporter.sendMail(mailOptions);
         res.status(200).json({ success: true, message: "OTP Send to your Email!" });
 
     } catch (error) {
