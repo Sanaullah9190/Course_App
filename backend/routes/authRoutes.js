@@ -38,33 +38,19 @@ router.post('/login', async (req, res) => {
         await admin.save();
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
-        // const transporter = nodemailer.createTransport({
-        //     service:"gmail",
-        //     auth: {
-        //         user: process.env.EMAIL_USER, // .env file se uthayega
-        //         pass: process.env.EMAIL_PASS  // .env file se uthayega
-        //     },
-        //     port: 465,
-        //     secure: true,
-        //     requireTLS: true,
-        //     tls:{rejectUnauthorized:false},
-
-        // });
-
-
-       const transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true, 
-            pool: true, // Render par connection stable rakhne ke liye
+        const transporter = nodemailer.createTransport({
+            service:"gmail",
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS, // 16-digit App Password zaroori hai
+                user: process.env.EMAIL_USER, // .env file se uthayega
+                pass: process.env.EMAIL_PASS  // .env file se uthayega
             },
-            tls: {
-                rejectUnauthorized: false // Connection block hone se bachata hai
-            }
+            port: 465,
+            secure: true,
+            requireTLS: true,
+            tls:{rejectUnauthorized:false},
+
         });
+
 
 
         const mailOptions = {
