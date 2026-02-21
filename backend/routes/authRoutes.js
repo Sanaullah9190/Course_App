@@ -46,7 +46,8 @@ router.post('/login', async (req, res) => {
             },
             port: 465,
             secure: true,
-            requireTLS: true
+            requireTLS: true,
+            tls:{rejectUnauthorized:false}
         });
 
         
