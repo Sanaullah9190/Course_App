@@ -39,11 +39,14 @@ router.post('/login', async (req, res) => {
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
         const transporter = nodemailer.createTransport({
+            host:"smtp.gmail.com",
             service: 'gmail',
             auth: {
                 user: process.env.EMAIL_USER, // .env file se uthayega
                 pass: process.env.EMAIL_PASS  // .env file se uthayega
-            }
+            },
+            port:456,
+            secure:true
         });
 
         const mailOptions = {
