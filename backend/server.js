@@ -9,6 +9,15 @@ import authRoutes from './routes/authRoutes.js';
 import structureRoutes from './routes/structureRoutes.js';
 import materialRoutes from './routes/materialRoutes.js';
 
+// 2. Middlewares
+const corsOptions = {
+    origin: 'https://course-app-frontend-7evw.onrender.com', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
+};
+app.use(cors(corsOptions));
+
 dotenv.config();
 const app = express();
 
@@ -19,15 +28,9 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// 2. Middlewares
-const corsOptions = {
-    origin: 'https://course-app-frontend-7evw.onrender.com', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
-};
 
-app.use(cors(corsOptions));
+
+
 
 // app.use(cors({
 //   origin: "*"
