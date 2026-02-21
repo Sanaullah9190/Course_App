@@ -34,7 +34,7 @@ const SelectionPage = () => {
     const handleYearSelect = async (year) => {
         setSelectedYear(year);
         try {
-            const res = await axios.get('http://localhost:5000/api/structure/all');
+            const res = await axios.get(`${BaseUrl}/api/structure/all`);
             const filteredBranches = res.data
                 .filter(item => item.course === courseName && item.year === year)
                 .map(item => item.branch);

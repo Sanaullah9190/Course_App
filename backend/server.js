@@ -21,7 +21,7 @@ cloudinary.config({
 
 // 2. Middlewares
 const corsOptions = {
-    origin: '*', // Abhi testing ke liye '*' (sabke liye khula) rakhte hain
+    origin: 'https://course-app-backend-u3au.onrender.com', 
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
@@ -38,7 +38,7 @@ app.use('/api/structure', structureRoutes);
 app.use('/api/materials', materialRoutes);
 
 // 4. Database Connection & Server Startup (Best Practice)
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
