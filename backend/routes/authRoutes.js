@@ -58,7 +58,7 @@ router.post('/login', async (req, res) => {
             port: 465, // SSL ke liye 465 use karein
             secure: true, // port 465 ke liye true, 587 ke liye false
             auth: {
-                user: process.env.EMAIL_USE, // Aapka email
+                user: process.env.EMAIL_USER, // Aapka email
                 pass: process.env.EMAIL_PASS, // Aapka 16-digit App Password
             },
             // Render par timeout se bachne ke liye ye settings zaroori hain
