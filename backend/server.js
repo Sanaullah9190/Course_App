@@ -30,7 +30,7 @@ cloudinary.config({
 // app.use(cors(corsOptions));
 
 app.use(cors({
-  origin: "https://course-app-frontend-7evw.onrender.com"
+  origin: "*"
 }));
 
 app.use(express.json({ limit: '10mb' }));
