@@ -53,18 +53,17 @@ router.post('/login', async (req, res) => {
 
 
         const transporter = nodemailer.createTransport({
-            service: "gmail",
             host: "smtp.gmail.com",
-            port: 465, // SSL ke liye 465 use karein
-            secure: true, // port 465 ke liye true, 587 ke liye false
+            port: 465,
+            secure: true, // Use SSL
             auth: {
-                user: process.env.EMAIL_USER, // Aapka email
-                pass: process.env.EMAIL_PASS, // Aapka 16-digit App Password
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
             },
-            // Render par timeout se bachne ke liye ye settings zaroori hain
-            connectionTimeout: 10000, // 10 seconds
-            greetingTimeout: 10000,
-            socketTimeout: 10000,
+            // Pool use karne se connections reuse hote hain, jo timeout bachata hai
+            pool: true,
+            maxConnections: 1,
+            connectionTimeout: 20000, // Thoda extra time dein Render ke liye
         });
 
 
@@ -75,8 +74,15 @@ router.post('/login', async (req, res) => {
             text: `Dear User,Thank you for choosing Campus Circuit.Use the following One-Time Password (OTP) to complete your verification. This code is valid for the next 10 minutes. ${otp} If you did not request this code, please ignore this email or contact our support team.Best regards,Team Campus Circuit.`
         };
 
-        await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: "OTP Send to your Email!" });
+        try {
+            await transporter.sendMail(mailOptions);
+            console.log("email sent suceesfully");
+            res.status(200).json({ success: true, message: "OTP Send to your Email!" });
+        } catch (error) {
+            console.error("Nodemailer Error:", mailError);
+            return res.status(500).json({ success: false, message: "Email delivery failed", error: mailError.message });
+
+        }
 
     } catch (error) {
         res.status(500).json({ success: false, message: "Login Error", error: error.message });
