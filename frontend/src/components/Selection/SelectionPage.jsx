@@ -60,7 +60,7 @@ const SelectionPage = () => {
                 {loading ? (
                     <div className="loader-container">
                         <div className="spinner"></div>
-                        <p>Fetching database records...</p>
+                        <p style={{color:"black"}}>Fetching database records...</p>
                     </div>
                 ) : (
                     <div className="selection-wrapper">

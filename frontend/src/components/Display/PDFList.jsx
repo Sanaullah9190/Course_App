@@ -47,7 +47,7 @@ const PDFList = () => {
                 {loading ? (
                     <div className="loader-container">
                         <div className="spinner"></div>
-                        <p>Fetching Resources...</p>
+                        <p style={{color:"black"}}>Fetching Resources...</p>
                     </div>
                 ) : (
                     <div className="selection-wrapper">

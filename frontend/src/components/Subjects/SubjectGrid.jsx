@@ -49,7 +49,7 @@ const SubjectGrid = () => {
                     {loading ? (
                         <div className="loader-container">
                             <div className="spinner"></div>
-                            <p>Loading subjects...</p>
+                            <p style={{color:"black"}}>Loading subjects...</p>
                         </div>
                     ) : (
                         <div className="card-grid">
