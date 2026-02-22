@@ -10,17 +10,18 @@ dotenv.config(); // 2. Config load karein
 const router = express.Router();
 
 // 1. REGISTER (Wahi purana logic)
-router.post('/register', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newAdmin = new Admin({ email, password: hashedPassword });
-        await newAdmin.save();
-        res.status(201).json({ success: true, message: "Admin Registered Succesful!" });
-    } catch (error) {
-        res.status(500).json({ success: false, message: "Registration failed" });
-    }
-});
+// router.post('/register', async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const hashedPassword = await bcrypt.hash(password, 10);
+//         const newAdmin = new Admin({ email, password: hashedPassword });
+//         await newAdmin.save();
+//         res.status(201).json({ success: true, message: "Admin Registered Succesful!" });
+//     } catch (error) {
+//         res.status(500).json({ success: false, message: "Registration failed" });
+//     }
+// });
+
 
 // 2. LOGIN (OTP bhejne wala)
 router.post('/login', async (req, res) => {
