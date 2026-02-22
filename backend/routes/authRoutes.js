@@ -2,7 +2,8 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import Admin from '../models/admin.js';
 import nodemailer from 'nodemailer';
-import dotenv from 'dotenv'; // 1. Dotenv import karein
+import dotenv from 'dotenv'; 
+import { Resend } from 'resend';
 
 dotenv.config(); // 2. Config load karein
 
@@ -38,29 +39,45 @@ router.post('/login', async (req, res) => {
         await admin.save();
 
         // 3. Ab yahan password code mein nahi hai, .env se aa raha hai
-        const transporter = nodemailer.createTransport({
-            service:"gmail",
-            auth: {
-                user: process.env.EMAIL_USER, // .env file se uthayega
-                pass: process.env.EMAIL_PASS  // .env file se uthayega
-            },
-            port: 465,
-            secure: true,
-            requireTLS: true,
-            tls:{rejectUnauthorized:false},
+        // const transporter = nodemailer.createTransport({
+        //     service:"gmail",
+        //     auth: {
+        //         user: process.env.EMAIL_USER, // .env file se uthayega
+        //         pass: process.env.EMAIL_PASS  // .env file se uthayega
+        //     },
+        //     port: 465,
+        //     secure: true,
+        //     requireTLS: true,
+        //     tls:{rejectUnauthorized:false},
 
-        });
+        // });
+
+        // const mailOptions = {
+        //     from: `"Campus Circuit " <${process.env.EMAIL_USER}>`,
+        //     to: admin.email,
+        //     subject: 'Login Verification OTP',
+        //     text: `Dear User,Thank you for choosing Campus Circuit.Use the following One-Time Password (OTP) to complete your verification. This code is valid for the next 10 minutes. ${otp} If you did not request this code, please ignore this email or contact our support team.Best regards,Team Campus Circuit.`
+        // };
+
+        // await transporter.sendMail(mailOptions);
 
 
+        // RESEND OTP MAIL SYSTEM 
+        const resend = new Resend(process.env.RESEND_API_KEY);
 
-        const mailOptions = {
-            from: `"Campus Circuit " <${process.env.EMAIL_USER}>`,
+        await resend.emails.send({
+            from: 'Campus Circuit <onboarding@resend.dev>',
             to: admin.email,
             subject: 'Login Verification OTP',
-            text: `Dear User,Thank you for choosing Campus Circuit.Use the following One-Time Password (OTP) to complete your verification. This code is valid for the next 10 minutes. ${otp} If you did not request this code, please ignore this email or contact our support team.Best regards,Team Campus Circuit.`
-        };
-
-        await transporter.sendMail(mailOptions);
+            html: `
+                <div style="font-family: sans-serif; padding: 20px; border: 1px solid #ddd;">
+                    <h2>Campus Circuit Verification Code</h2>
+                    <p>This is your OTP:</p>
+                    <h1 style="color: #007bff;">${otp}</h1>
+                    <p>Ye OTP expire in 10 minutes .</p>
+                </div>
+            `
+        })
         res.status(200).json({ success: true, message: "OTP Send to your Email!" })
 
     } catch (error) {
