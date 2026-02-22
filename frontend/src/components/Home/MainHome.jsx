@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Axios import karein
+import axios from 'axios'; 
 import './MainHome.css';
 import {BaseUrl} from '../../Constant.js'
+import Header from '../Header/Header.jsx';
 
 const MainHome = ({ onAdminClick }) => {
     const navigate = useNavigate();
@@ -15,12 +16,12 @@ const MainHome = ({ onAdminClick }) => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                // Aapke backend ka fetch route (check karein ye route backend mein hai ya nahi)
+               
                 const response = await axios.get(`${BaseUrl}/api/structure/courses`);
-                setCourses(response.data); // Database se aayi list yahan set hogi
+                setCourses(response.data); 
             } catch (error) {
                 console.error("Error fetching courses:", error);
-                // Agar error aaye toh fallback ke liye purana "B.Tech" dikha sakte hain
+                
                 setCourses(["B.Tech"]);
             } finally {
                 setLoading(false);
@@ -32,17 +33,14 @@ const MainHome = ({ onAdminClick }) => {
 
     return (
         <div className="main-home-container">
-            <div className="portal-header">
+            <Header/>
+            <div className='login-btn-container'>
                 <button className="admin-login-btn" onClick={onAdminClick}>
-                    Admin Login 👤
+                    Login 👤
                 </button>
-                
-                <div className="header-content">
-                    <h1>Campus <span>Circuit</span> Portal</h1>
-                    <p>Access high-quality study materials, notes, and previous year papers.</p>
-                </div>
             </div>
-
+                
+        
             <div className="content-body">
                 <h2 className="section-title">Select Your Course</h2>
                 

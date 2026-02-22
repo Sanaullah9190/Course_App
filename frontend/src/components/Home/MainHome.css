@@ -53,3 +53,15 @@
     font-size: 13px;
     letter-spacing: 1px;
 }
+.admin-login-btn{
+    background-color: rgb(255, 255, 255);
+    max-width: fit-content;
+    color: rgb(0, 0, 0);
+    margin: 5px ;
+    
+}
+.login-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

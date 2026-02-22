@@ -4,6 +4,7 @@ import axios from 'axios';
 // Import path check kar lena:
 import '../Selection/SelectionPage.css'; 
 import {BaseUrl} from '../../Constant.js'
+import Header from '../Header/Header.jsx';
 
 const PDFList = () => {
     const { course, year, branch, subject } = useParams();
@@ -36,14 +37,11 @@ const PDFList = () => {
 
     const filteredFiles = materials.filter(m => m.category === selectedCategory);
 
+    const navigate = useNavigate()
+
     return (
         <div className="main-home-container">
-            <div className="portal-header">
-                <div className="header-content">
-                    <h1>Campus <span>Circuit</span> Portal</h1>
-                    <p>Resources for <strong>{subject}</strong></p>
-                </div>
-            </div>
+            <Header/>
 
             <div className="content-body">
                 {loading ? (
@@ -72,7 +70,13 @@ const PDFList = () => {
                                         <div className="explore-tag">EXPLORE PAPERS →</div>
                                     </div>
                                 </div>
+
+                                <button className="" onClick={()=> navigate(-1)} style={{marginTop: '25px', padding: '10px 20px', borderRadius: '12px', cursor: 'pointer', border: '1px solid #ddd', background: 'white', color: '#64748b', fontWeight: '600'}}>
+                                    ← Back
+                                </button>
+
                             </div>
+                            
                         ) : (
                             <div className="step-container">
                                 <span className="step-tag">{selectedCategory} Section</span>

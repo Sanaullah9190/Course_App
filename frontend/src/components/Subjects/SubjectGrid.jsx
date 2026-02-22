@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SubjectGrid.css';
 import {BaseUrl} from '../../Constant.js'
+import BackBtn from '../BcakBTn/BackBtn.jsx';
+import Header from '../Header/Header.jsx';
 
 const SubjectGrid = () => {
     const { course, year, branch } = useParams();
@@ -33,16 +35,13 @@ const SubjectGrid = () => {
     return (
         <div className="main-home-container">
             {/* Wahi Premium Hero Section jo aapne select kiya tha */}
-            <div className="portal-header">
-                <div className="header-content">
-                    <h1>Campus <span>Circuit</span> Portal</h1>
-                    <p>{course} • {year} • {branch}</p>
-                </div>
-            </div>
+            <Header/>
 
             <div className="content-body">
                 {/* No Back Button here anymore */}
                 
+                    
+                    
                 <div className="selection-wrapper">
                     <span className="step-tag">Step 3: Choose Subject</span>
                     <h2 className="section-title">Select Your <span>Subject</span></h2>
@@ -70,7 +69,9 @@ const SubjectGrid = () => {
                         </div>
                     )}
                 </div>
+            <BackBtn/>
             </div>
+            
         </div>
     );
 };

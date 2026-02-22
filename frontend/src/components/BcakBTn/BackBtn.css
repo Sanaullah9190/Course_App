@@ -1,0 +1,16 @@
+.back_btn{
+    background-color: #ffffff; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 5px 5px;
+    border: gray 0.2px solid;
+    cursor: pointer;
+    transition: 0.3s; 
+    
+}
+.back_btn:hover {
+    background-color: #b8d1ec; /* Thoda Dark Blue */
+}

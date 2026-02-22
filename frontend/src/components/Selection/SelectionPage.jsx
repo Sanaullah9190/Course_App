@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './SelectionPage.css';
 import {BaseUrl} from '../../Constant.js'
+import BackBtn from '../BcakBTn/BackBtn.jsx';
+import Header from '../Header/Header.jsx';
 
 const SelectionPage = () => {
     const { courseName } = useParams();
@@ -52,12 +54,7 @@ const SelectionPage = () => {
 
     return (
         <div className="main-home-container">
-            <div className="portal-header">
-                <div className="header-content">
-                    <h1>Campus <span>Circuit</span> Portal</h1>
-                    <p>Select Academic Details for <strong>{courseName}</strong></p>
-                </div>
-            </div>
+            <Header/>
 
             <div className="content-body">
                 {loading ? (
@@ -95,9 +92,11 @@ const SelectionPage = () => {
                                     ))}
                                 </div>
                             </div>
+                            
                         )}
                     </div>
                 )}
+                <BackBtn/>
             </div>
         </div>
     );

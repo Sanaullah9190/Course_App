@@ -1,0 +1,16 @@
+.portal-header { 
+    background: radial-gradient(circle at top right, #1a237e, #0d1231); 
+    color: white; padding: 25px 20px; text-align: center; flex-shrink: 0;
+    border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.header-content h1 { 
+    font-size: 2.5rem; font-weight: 800; margin-bottom: 5px;
+    background: linear-gradient(to right, #fff, #4cc9f0);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.header-content h1 span { color: #4cc9f0; }
+
+.header-content p { font-size: 0.95rem; color: #cbd5e1; font-weight: 300; }
